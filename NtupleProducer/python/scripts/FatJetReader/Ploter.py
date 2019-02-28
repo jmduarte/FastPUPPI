@@ -148,7 +148,7 @@ def PlotComp(plotdict, comname):
         line.SetLineStyle(2)
         line.Draw()
     else:
-        draw(hists[:], xtitle=xtitle, ytitle=ytitle, logy=False, opt='HIST')
+        draw(hists[:], xtitle=xtitle, ytitle=ytitle, logy=False)
 
     ## Legend
     legend = Legend(hists, leftmargin=0.55, margin=0.2)
@@ -180,6 +180,8 @@ def GetHistNames(p):
     return p.itervalues().next().itervalues().next().keys()
 
 if __name__ == "__main__":
+
+    ROOT.gROOT.SetBatch()
     # p = pickle.load(open('./TTbar_PU140.p', 'rb'))
     p = pickle.load(open('./QCD_PU140.p', 'rb'))
     # p = pickle.load(open('./MinBias_PU140.p', 'rb'))

@@ -55,7 +55,8 @@ def LoadTree():
         treemap[k] = t
 
 if __name__ == "__main__":
-    folder = "/Users/benwu/Data/Dataset/L1PFInputs/FatJetNtuple/Nov10SeedJet_v4/"
+    ROOT.gROOT.SetBatch()
+    folder = "/eos/uscms/store/user/benwu/Phase2L1/FatJet/Nov10SeedJet_v4/"
     filename = {
         # "QCD_PU0"     : "%s/QCD_PU0*.root"       % folder,
         "QCD_PU140"   : "%s/QCD_PU140*.root"     % folder,
