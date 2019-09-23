@@ -9,11 +9,52 @@ process.load("SimGeneral.HepPDTESSource.pythiapdt_cfi")
 process.load("FWCore.MessageLogger.MessageLogger_cfi")
 process.options   = cms.untracked.PSet( wantSummary = cms.untracked.bool(True), allowUnscheduled = cms.untracked.bool(False) )
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1))
-process.MessageLogger.cerr.FwkReport.reportEvery = 1
+process.MessageLogger.cerr.FwkReport.reportEvery = 100
+
+ttbar_files = ['file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_1.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_2.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_3.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_4.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_5.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_6.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_7.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_8.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_9.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_10.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_11.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_12.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_13.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_14.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_15.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_16.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_17.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_18.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_19.root',
+               'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/TTbar_PU200/inputs104X_20.root']
+
+vbf_files = ['file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job1.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job2.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job3.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job4.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job5.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job6.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job7.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job8.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job9.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job10.root',
+            'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job11.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job12.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job13.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job14.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job15.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job16.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job17.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job18.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job19.root',
+             'file:/eos/cms/store/cmst3/group/l1tr/gpetrucc/106X/NewInputs104X/240719_oldhgc.done/VBF_HToInvisible_PU200/inputs104X_VBF_HToInvisible_PU200_job20.root']
 
 process.source = cms.Source("PoolSource",
-                            fileNames = cms.untracked.vstring(
-                                'file:/eos/cms/store/cmst3/user/gpetrucc/l1tr/105X/NewInputs104X/010319/TTbar_PU200/inputs104X_TTbar_PU200_job1.root',
+                            fileNames = cms.untracked.vstring(ttbar_files
                             ),
     duplicateCheckMode = cms.untracked.string("noDuplicateCheck"),
     skipBadFiles = cms.untracked.bool(True),
@@ -170,7 +211,7 @@ for D in ['Barrel','HF','HGCal','HGCalNoTK']:
 def goRegional():
     process.l1pfProducerBarrel.regions = cms.VPSet(
         cms.PSet(
-            etaBoundaries = cms.vdouble(-1.5, -0.75, 0, 0.75, 1.5),
+            etaBoundaries = cms.vdouble(-1.5, -0.5, 0.5, 1.5),
             etaExtra = cms.double(0.25),
             phiExtra = cms.double(0.25),
             phiSlices = cms.uint32(9)
@@ -206,18 +247,32 @@ def goRegional():
     )
     process.l1pfProducerHF.regions = cms.VPSet(
         cms.PSet(
+            # 72 regions in HF:
             etaBoundaries = cms.vdouble(-5, -4.5, -4, -3.5, -3),
+            # 36 regions in HF:
+            #etaBoundaries = cms.vdouble(-5, -4, -3),
             etaExtra = cms.double(0.25),
             phiExtra = cms.double(0.25),
             phiSlices = cms.uint32(9)
         ),
         cms.PSet(
+            # 72 regions in HF:
             etaBoundaries = cms.vdouble(3, 3.5, 4, 4.5, 5),
+            # 36 regions in HF:
+            #etaBoundaries = cms.vdouble(3, 4, 5),
             etaExtra = cms.double(0.25),
             phiExtra = cms.double(0.25),
             phiSlices = cms.uint32(9)
         )
     )
+
+goRegional()
+
+# turn on Manos HGC MVA ID
+process.pfClustersFromHGC3DClusters.emVsPionID.method = cms.string("BDT")
+process.pfClustersFromHGC3DClusters.emVsPUID.method = cms.string("BDT")
+# add 17 GeV HF hadPtCut from Daekwon
+process.l1pfProducerHF.hadPtCut = 17
 
 process.runPF.associate(process.extraPFStuff)
 # to check available tags:
@@ -228,7 +283,7 @@ process.p = cms.Path(
         process.l1pfjetTable + 
         process.l1pfmetTable + process.l1pfmetCentralTable + process.l1pfmetBarrelTable
         )
-process.TFileService = cms.Service("TFileService", fileName = cms.string("perfTuple.root"))
+process.TFileService = cms.Service("TFileService", fileName = cms.string("perfTuple_ttbar_72regionsHF.root"))
 
 # for full debug:
 #process.out = cms.OutputModule("PoolOutputModule",
@@ -238,7 +293,7 @@ process.TFileService = cms.Service("TFileService", fileName = cms.string("perfTu
 #process.end = cms.EndPath(process.out)
 
 process.outnano = cms.OutputModule("NanoAODOutputModule",
-    fileName = cms.untracked.string("perfNano.root"),
+    fileName = cms.untracked.string("perfNano_ttbar_72regionsHF.root"),
     SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('p')),
     outputCommands = cms.untracked.vstring("drop *", "keep nanoaodFlatTable_*Table_*_*"),
     compressionLevel = cms.untracked.int32(4),
