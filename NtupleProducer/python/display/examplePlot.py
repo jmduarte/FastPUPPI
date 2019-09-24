@@ -2,7 +2,7 @@ import ROOT
 
 def CreateCanvas(CanvasName = "myPlot", LogY = False, Grid = True):
   c = ROOT.TCanvas(CanvasName,CanvasName,800,800)
-  c.SetLeftMargin(0.11)
+  c.SetLeftMargin(0.13)
   if Grid: c.SetGrid()
   if LogY: c.SetLogy()
   return c
@@ -11,7 +11,7 @@ def DrawPrelimLabel(c):
   c.cd()
   tex = ROOT.TLatex()
   tex.SetTextSize(0.03)
-  tex.DrawLatexNDC(0.11,0.91,"#scale[1.5]{CMS}")
+  tex.DrawLatexNDC(0.13,0.91,"#scale[1.5]{CMS}")
   tex.Draw("same")
   
 def DrawLumiLabel(c, Lumi = "35.9"):

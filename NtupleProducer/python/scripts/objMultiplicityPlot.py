@@ -10,7 +10,7 @@ ROOT.gErrorIgnoreLevel = ROOT.kWarning
 from math import *
 from optparse import OptionParser
 import sys
-sys.path.insert(0,'../')
+sys.path.insert(0,'./')
 from display.examplePlot import *
 
 parser = OptionParser("%(prog) infile [ src [ dst ] ]")
@@ -72,10 +72,13 @@ for detector in detectors:
                 h.GetYaxis().SetTitle("Events")
                 h.GetXaxis().SetTitle("Max %s per %s region"%(particle, detectorLabel))
             h.Draw()
-            if x=='vec': c1.SetLogy()
+            if x=='vec': 
+                c1.SetLogy(1)
+            else:
+                c1.SetLogy(0)
             if x=='max' and options.cl>0:
                 h.SetMaximum(1.4*h.GetMaximum())
-                leg = ROOT.TLegend(0.14,0.76,0.75,0.86)
+                leg = ROOT.TLegend(0.20,0.76,0.75,0.86)
                 leg.SetBorderSize(0)
                 leg.SetFillStyle(0)
                 leg.SetTextSize(0.03)

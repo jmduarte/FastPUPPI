@@ -8,7 +8,7 @@ git cms-init
 git cms-checkout-topic -u p2l1pfp:L1PF_10_6_1p2_X
 
 # scripts
-git clone git@github.com:p2l1pfp/FastPUPPI.git -b 106X
+git clone git@github.com:jmduarte/FastPUPPI.git -b tdr_objmult
 
 scram b -j8
 ```
@@ -81,7 +81,7 @@ python scripts/jetHtSuite.py perfNano_TTbar_PU200.root perfNano_SingleNeutrino_P
 
 Plot the number of elements in a given detector (`Barrel`, `HGCal`, `HGCalNoTK`, `HF`): 
 ```
-python scripts/objMultiplicityPlot.py perfTuple_TTbar_PU200.root -d Barrel plotdir 
+python scripts/objMultiplicityPlot.py perfTuple_TTbar_PU200.root -d Barrel plotdir --cl 0.95
 ```
  * note: you should add `goRegional()` to the options in `runPerformanceNTuple.py` if you want to get meaningful numbers per region and not just overall
 

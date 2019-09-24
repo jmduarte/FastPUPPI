@@ -248,18 +248,18 @@ def goRegional():
     process.l1pfProducerHF.regions = cms.VPSet(
         cms.PSet(
             # 72 regions in HF:
-            etaBoundaries = cms.vdouble(-5, -4.5, -4, -3.5, -3),
+            #etaBoundaries = cms.vdouble(-5, -4.5, -4, -3.5, -3),
             # 36 regions in HF:
-            #etaBoundaries = cms.vdouble(-5, -4, -3),
+            etaBoundaries = cms.vdouble(-5, -4, -3),
             etaExtra = cms.double(0.25),
             phiExtra = cms.double(0.25),
             phiSlices = cms.uint32(9)
         ),
         cms.PSet(
             # 72 regions in HF:
-            etaBoundaries = cms.vdouble(3, 3.5, 4, 4.5, 5),
+            #etaBoundaries = cms.vdouble(3, 3.5, 4, 4.5, 5),
             # 36 regions in HF:
-            #etaBoundaries = cms.vdouble(3, 4, 5),
+            etaBoundaries = cms.vdouble(3, 4, 5),
             etaExtra = cms.double(0.25),
             phiExtra = cms.double(0.25),
             phiSlices = cms.uint32(9)
@@ -283,7 +283,7 @@ process.p = cms.Path(
         process.l1pfjetTable + 
         process.l1pfmetTable + process.l1pfmetCentralTable + process.l1pfmetBarrelTable
         )
-process.TFileService = cms.Service("TFileService", fileName = cms.string("perfTuple_ttbar_72regionsHF.root"))
+process.TFileService = cms.Service("TFileService", fileName = cms.string("perfTuple_ttbar_36regionsHF.root"))
 
 # for full debug:
 #process.out = cms.OutputModule("PoolOutputModule",
@@ -293,7 +293,7 @@ process.TFileService = cms.Service("TFileService", fileName = cms.string("perfTu
 #process.end = cms.EndPath(process.out)
 
 process.outnano = cms.OutputModule("NanoAODOutputModule",
-    fileName = cms.untracked.string("perfNano_ttbar_72regionsHF.root"),
+    fileName = cms.untracked.string("perfNano_ttbar_36regionsHF.root"),
     SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('p')),
     outputCommands = cms.untracked.vstring("drop *", "keep nanoaodFlatTable_*Table_*_*"),
     compressionLevel = cms.untracked.int32(4),
